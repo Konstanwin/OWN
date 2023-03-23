@@ -21,11 +21,15 @@ const Home = () => {
   }, [address, contract]);
 
   return (
+    <div className=''>
+      <img src='https://www.linkpicture.com/q/IMG_0361_1.jpg' alt='OWN' className='w-full h-96 mb-8' />
+    
     <DisplayCampaigns 
       title="All Campaigns"
       isLoading={isLoading}
       campaigns={campaigns}
     />
+    </div>
   )
 }
 
