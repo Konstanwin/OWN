@@ -15,20 +15,24 @@ const Home = () => {
     setCampaigns(data);
     setIsLoading(false);
   }
-
+ 
   useEffect(() => {
     if(contract) fetchCampaigns();
   }, [address, contract]);
 
   return (
     <div className=''>
-      <img src='https://www.linkpicture.com/q/IMG_0361_1.jpg' alt='OWN' className='w-full h-96 mb-8' />
+      {/* <div onClick={() => console.log("Image clicked")} className=''>
+        <a href='#'>
+      <img src='https://www.linkpicture.com/q/IMG_0361_1.jpg' alt='OWN' className='w-full h-96 mb-8'   /></a></div> */}
+      
     
     <DisplayCampaigns 
       title="All Campaigns"
       isLoading={isLoading}
       campaigns={campaigns}
     />
+    
     </div>
   )
 }
