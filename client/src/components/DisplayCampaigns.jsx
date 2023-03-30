@@ -10,9 +10,12 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
   const handleNavigate = (campaign) => {
     navigate(`/campaign-details/${campaign.title}`, { state: campaign })
   }
-  
+
+
   return (
     <div>
+      <div onClick={() => handleNavigate(campaigns[0])} className='cursor-pointer'>
+      <img src='https://www.linkpicture.com/q/IMG_0361_1.jpg' alt='OWN' className='w-full h-96 mb-8'   /></div>
       <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">{title} ({campaigns.length})</h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
@@ -26,11 +29,13 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
           </p>
         )}
 
-        {!isLoading && campaigns.length > 0 && campaigns.map((campaign) => <FundCard 
-          key={campaign.id}
-          {...campaign}
-          handleClick={() => handleNavigate(campaign)}
-        />)}
+        {!isLoading && campaigns.length > 0 && campaigns.slice(1).map((campaign) => (
+  <FundCard 
+    key={campaign.id}
+    {...campaign}
+    handleClick={() => handleNavigate(campaign)}
+  />
+))}
       </div>
     </div>
   )
